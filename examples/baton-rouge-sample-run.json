@@ -1,0 +1,4814 @@
+{
+  "tool": "sensor-gap 0.1.0 (owockibot bounty #478)",
+  "generated_at": "2026-09-29T20:19:05Z",
+  "mode": "live",
+  "schema_ref": "https://github.com/xtratrezzy/ecological-sensor-schema/blob/main/schema/ecological-sensor-reading.schema.json",
+  "input": {
+    "lat": 30.4457,
+    "lon": -91.1916,
+    "radius_km": 25.0,
+    "sectors": 12
+  },
+  "sources": {
+    "usgs_nwis_site": "https://waterservices.usgs.gov/nwis/site/?format=rdb&bBox=<w>,<s>,<e>,<n>&siteType=ST",
+    "usgs_nwis_iv": "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=<id>&parameterCd=00010,00300,00400,63680&period=P7D",
+    "epa_wqp_station": "https://www.waterqualitydata.us/data/Station/search?mimeType=csv&lat=<lat>&long=<lon>&within=<deg>",
+    "usgs_epqs": "https://epqs.nationalmap.gov/v1/json?x=<lon>&y=<lat>&units=Meters"
+  },
+  "upstream_heuristic": {
+    "method": "elevation proxy via USGS EPQS",
+    "description": "Candidate placements along the gap bearing are ranked by ground elevation; higher ground is treated as a weak upstream indicator.",
+    "limitations": "True NHDPlus flowline tracing is out of scope for v0.1. Elevation is only a proxy: on flat coastal plains (e.g. Louisiana) gradients are tiny and the heuristic is weak; tributary vs mainstem topology is not resolved."
+  },
+  "gap_analysis": {
+    "stations_found": 161,
+    "nearest_station_km": 0.01,
+    "empty_sectors": 1,
+    "sector_span_deg": [
+      300.0,
+      330.0
+    ],
+    "gap_mid_bearing_deg": 315.0,
+    "occupied_sectors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      11
+    ]
+  },
+  "recommendation": {
+    "lat": 30.525157,
+    "lon": -91.283879,
+    "elevation_m": 12.98,
+    "rationale": [
+      "Largest sensor gap lies along bearing 315 deg from the input river point.",
+      "Proposed station at 50% of the 25 km search radius along that bearing; EPQS elevation 13.0 m.",
+      "Higher ground is treated as an upstream proxy (documented heuristic); true NHDPlus flowline tracing is out of scope for v0.1."
+    ],
+    "virtual_sensor_id": "VIRTUAL:sensor-gap-478:c38d923f"
+  },
+  "reading_stats": {
+    "baseline_parameter": "temperature",
+    "baseline_unit": "celsius",
+    "baseline_value": 29.0,
+    "live_reading_count": 1,
+    "estimated_count": 161
+  },
+  "readings": [
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07374000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T14:00:00.000-05:00",
+      "location": {
+        "lat": 30.445667,
+        "lng": -91.191556,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "raw",
+      "notes": "Mississippi River at Baton Rouge, LA (USGS:07374000); USGS parameter code 00010; live NWIS instantaneous value."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379502",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.434913,
+        "lng": -91.186774
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Corporation Canal at Oklahoma St. at B. R., LA (USGS:07379502); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07374010",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.448524,
+        "lng": -91.207052
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER (BATROUGE GAGE CORR TO MSL) (USGS:07374010); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302540091121000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.427969,
+        "lng": -91.202885
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI R @ PORT ALLEN LOCK FOREBAY (USGS:302540091121000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07374050",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.429358,
+        "lng": -91.207052
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "(COE) Mississippi River at Lock at Baton Rouge, LA (USGS:07374050); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07381412",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.432222,
+        "lng": -91.210472,
+        "elevation_m": -0.17
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "INTRACOASTAL WATERWAY NR PORT ALLEN LA (USGS:07381412); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302800091114800",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.466857,
+        "lng": -91.196775
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 231 (USGS:302800091114800); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373999",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.459913,
+        "lng": -91.167051
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Trib. to Capitol Lake @ 21st St Pump Station (USGS:07373999); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379490",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.429636,
+        "lng": -91.168162
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BYU DUPLANTIER AB CITY PARK LK, AT B.R., LA (USGS:07379490); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379503",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.421858,
+        "lng": -91.176774,
+        "elevation_m": -0.15
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "CORPORATION C.AT E.ROOSEVELT ST. AT B. R. LA. (USGS:07379503); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379505",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.417414,
+        "lng": -91.172885
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "CORPORATION C.AT CHIMES ST.,AT BATON ROUGE, LA. (USGS:07379505); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379500",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.421025,
+        "lng": -91.166773
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BYU DUPLANTIER @ CITY PARK LK @ BATON ROUGE, LA (USGS:07379500); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07381413",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.445191,
+        "lng": -91.231498
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "INTRACOASTAL WATERWAY TRIB.NR PORT ALLEN, LA. (USGS:07381413); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302827091100401",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.474357,
+        "lng": -91.167885
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "OSAGE RAIN GAGE AT FIRE STA. NO. 2 AT R.R. (USGS:302827091100401); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.444469,
+        "lng": -91.143162,
+        "elevation_m": -0.64
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Ward Creek at Government St at Baton Rouge, LA (USGS:07379000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379510",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.407136,
+        "lng": -91.164551
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BYU DUPLANTIER @ STANFORD AV @ BATON ROUGE, LA (USGS:07379510); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379507",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.404081,
+        "lng": -91.17094
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "CORPORATION C.AT CAMPUS DR AT BATON ROUGE, LA. (USGS:07379507); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379010",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.435747,
+        "lng": -91.133161,
+        "elevation_m": -0.35
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Ward Creek at College Drive at Baton Rouge, LA (USGS:07379010); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379550",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.401581,
+        "lng": -91.152606,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Duplantier at Lee Dr @ Baton Rouge, LA (USGS:07379550); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302701091072701",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.450468,
+        "lng": -91.124272
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "USGS RAIN GAGE AT FLORIDA & CARROLLTON AT B.R. (USGS:302701091072701); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378778",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.392222,
+        "lng": -91.161111,
+        "elevation_m": 1.22
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Fountain at Lee Drive at Baton Rouge, LA (USGS:07378778); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373996",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.502967,
+        "lng": -91.170107,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MONTE SANO BAYOU AT BATON ROUGE, LA. (USGS:07373996); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.410469,
+        "lng": -91.131495,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "DAWSON CREEK @ PERKINS ROAD @ BATON ROUGE, LA. (USGS:07379400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378008",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.482134,
+        "lng": -91.128162,
+        "elevation_m": -0.66
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Hurricane Creek at Baton Rouge, LA (USGS:07378008); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378590",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.456857,
+        "lng": -91.111494
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Trib. to Jones Creek nr Lobdell Blvd @ Baton Rouge (USGS:07378590); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378585",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.461579,
+        "lng": -91.111772
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Trib to Jones Creek nr Tom Drive @ Baton Rouge, LA (USGS:07378585); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302543091162400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.428803,
+        "lng": -91.273442
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "IWW @ MI 60.0 NR PORT ALLEN, LA (USGS:302543091162400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302749091063500",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.463801,
+        "lng": -91.109828
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "DRAINAGE CANAL AT TOM DR .1 MI E WOODDALE BLVD (USGS:302749091063500); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378790",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.374915,
+        "lng": -91.168995
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Elbow Bayou Trib. at Baton Rouge, LA (USGS:07378790); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302743091063001",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.462135,
+        "lng": -91.108439
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "TOM DR. RAIN GAGE AT LA.D0TD COMPOUND AT B.R. (USGS:302743091063001); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:303106091122000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.518522,
+        "lng": -91.205664
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI R @ WILKINSON POINT NR BATON ROUGE (USGS:303106091122000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302240091140000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.37797,
+        "lng": -91.233442
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 224 (USGS:302240091140000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:303120091114300",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.522411,
+        "lng": -91.195386
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "LAKE KERNAN (STN. 1) MID-LAKE (USGS:303120091114300); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373994",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.519633,
+        "lng": -91.162052
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Monte Sano Bayou trib nr Harding Blvd, at BR, LA (USGS:07373994); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379102",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.417778,
+        "lng": -91.1025
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Tributry to North Branch Ward Creek at Baton Rouge (USGS:07379102); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378792",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.369359,
+        "lng": -91.157606
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Elbow Bayou nr Baton Rouge, LA (USGS:07378792); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302220091140800",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.372415,
+        "lng": -91.235664
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 224 AT LUKEVILLE (USGS:302220091140800); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378015",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.5063,
+        "lng": -91.125384
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Roberts Canal at Baton Rouge, LA (USGS:07378015); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379050",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.404914,
+        "lng": -91.103438,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Ward Creek at Essen Lane near Baton Rouge, LA (USGS:07379050); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:303153091105001",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.531578,
+        "lng": -91.180663
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "SCOTLANDVILLE RAIN GAGE AT FIRE STA.NO.16 AT BR (USGS:303153091105001); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379090",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.442968,
+        "lng": -91.090938,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "N BRANCH WARD CREEK @ GOODWOOD BLVD. @ B. R. LA. (USGS:07379090); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379085",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.445468,
+        "lng": -91.09066
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "N BR WARD CR TRIB AT BATON ROUGE, LA (USGS:07379085); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379950",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.388803,
+        "lng": -91.111772
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "DAWSON CK. @ STARING LANE NR. BATON ROUGE, LA. (USGS:07379950); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:303201091123300",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.5338,
+        "lng": -91.209275
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI R @ BATON ROUGE HARBOR @ BATON ROUGE (USGS:303201091123300); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378788",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.357693,
+        "lng": -91.172329
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Elbow Bayou at Baton Rouge, LA (USGS:07378788); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379100",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.417969,
+        "lng": -91.091493,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "North Branch Ward Creek at Baton Rouge, LA (USGS:07379100); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378595",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.464635,
+        "lng": -91.087605,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "JONES CR. AT AIRLINE HWY. AT BATON ROUGE, LA. (USGS:07378595); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379095",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.430747,
+        "lng": -91.086493,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "NORTH BRANCH WARD CREEK AT OLD HAMMOND HWY. (USGS:07379095); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373993",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.535744,
+        "lng": -91.158996,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MONTE SANO AT RYAN AIRPORT, AT BATON ROUGE, LA. (USGS:07373993); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378597",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.464912,
+        "lng": -91.084271
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Jones Creek at Monterrey Blvd at Baton Rouge, LA (USGS:07378597); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378010",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.487412,
+        "lng": -91.088994,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Hurricane Creek near Baton Rouge, LA (USGS:07378010); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378600",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.456024,
+        "lng": -91.074827
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Jones Creek at Florida Blvd. at Baton Rouge, LA (USGS:07378600); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378800",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.364637,
+        "lng": -91.121216,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAYOU FOUNTAIN AT GARDERE LANE NR. B. R. LA. (USGS:07378800); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379060",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.394105,
+        "lng": -91.087337,
+        "elevation_m": 1.76
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Ward Creek at Bluebonnet Blvd at Baton Rouge, LA (USGS:07379060); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378020",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.4988,
+        "lng": -91.088161,
+        "elevation_m": -0.62
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Roberts Canal near Baton Rouge, LA (USGS:07378020); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379960",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.382414,
+        "lng": -91.094271,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Dawson Cr. at Bluebonnet Blvd near Baton Rouge, LA (USGS:07379960); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302046091141200",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.346304,
+        "lng": -91.236775
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 222.0 SURFACE (USGS:302046091141200); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377900",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.542411,
+        "lng": -91.13844,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Cypress Bayou at Plank Rd near Baton Rouge, LA (USGS:07377900); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378620",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.446024,
+        "lng": -91.066493
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Jones Creek at Goodwood Blvd. at Baton Rouge, LA (USGS:07378620); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377920",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.528522,
+        "lng": -91.109828
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Cypress Bayou at Hooper Road nr Baton Rouge, LA (USGS:07377920); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378670",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.41908,
+        "lng": -91.065382
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Weiner Creek nr Baton Rouge, LA (USGS:07378670); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378810",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.358526,
+        "lng": -91.10816,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Fountain at Bluebonnet Blvd near  B.R., LA (USGS:07378810); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379001",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.33936,
+        "lng": -91.143161
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "WARD CREEK AT GOVERNMENT ST. (URBAN) (USGS:07379001); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377870",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.530744,
+        "lng": -91.093716,
+        "elevation_m": 8.68
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River at Hooper Road near Baton Rouge, LA (USGS:07377870); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.512689,
+        "lng": -91.073716,
+        "elevation_m": 6.56
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River near Comite, LA (USGS:07378000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378615",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.432135,
+        "lng": -91.049826
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Trib.to Jones Creek nr Goodwood Blvd @ Baton Rouge (USGS:07378615); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302657091025600",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.449357,
+        "lng": -91.048993
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "DRAINAGE CANAL GOODWOOD BLVD .5 MI E SHERWOOD FORS (USGS:302657091025600); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378675",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.419913,
+        "lng": -91.051492
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Weiner Creek at Baton Rouge, LA (USGS:07378675); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:073814135",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.395193,
+        "lng": -91.323165
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Intracoastal Waterway at Morley, LA (USGS:073814135); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07380000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.375192,
+        "lng": -91.069548,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "WARD CR AT SIEGENS LANE NR BATON ROUGE, LA. (USGS:07380000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378650",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.440746,
+        "lng": -91.044548,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Jones Cr. at Old Hammond Hwy near Baton Rouge, LA (USGS:07378650); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378720",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.396303,
+        "lng": -91.055659
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Clay Cut Bayou at Siegen Lane nr Baton Rouge, LA (USGS:07378720); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378647",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.441302,
+        "lng": -91.042603
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Lively Bayou at Old Hammond Hwy at Baton Rouge, LA (USGS:07378647); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:301900091112500",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.31686,
+        "lng": -91.190384
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 212 (USGS:301900091112500); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302257091192500",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.382693,
+        "lng": -91.32372
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "IWW @ MI 55.0 NR PORT ALLEN, LA (USGS:302257091192500); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377940",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.535188,
+        "lng": -91.081494
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Blackwater Bayou nr Baton Rouge, LA (USGS:07377940); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377890",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.575465,
+        "lng": -91.167052,
+        "elevation_m": -0.47
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Cypress Bayou at Baker, LA (USGS:07377890); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302510091203200",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.419444,
+        "lng": -91.342222
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Choctaw Bayou nr Brusly (USGS:302510091203200); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378815",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.35,
+        "lng": -91.083611,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Fountain at Burbank Dr near Baton Rouge, LA (USGS:07378815); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378805",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.350193,
+        "lng": -91.081771
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAYOU FOUNTAIN TRIB. NEAR BATON ROUGE, LA. (USGS:07378805); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07381429",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.443803,
+        "lng": -91.347887,
+        "elevation_m": -3.28
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Choctaw Bayou at I-10 east of Grosse Tete, LA (USGS:07381429); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378645",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.446579,
+        "lng": -91.034548
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Lively Bayou southeast of Baton Rouge, LA (USGS:07378645); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378655",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.422969,
+        "lng": -91.03677
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Jones Creek, Woodland Ridge Blvd, @ Baton Rouge,LA (USGS:07378655); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378721",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.388248,
+        "lng": -91.048992
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Trib.to Claycut Bayou nr Industriplex Blvd nr B.R, (USGS:07378721); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373980",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.580465,
+        "lng": -91.212053,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Baker Canal near Baker, LA (USGS:07373980); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378640",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.461301,
+        "lng": -91.034548,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Lively Bayou east of Baton Rouge, LA (USGS:07378640); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377760",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.558271,
+        "lng": -91.098272,
+        "elevation_m": 11.1
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River at Comite Dr near Baton Rouge, LA (USGS:07377760); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378635",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.471615,
+        "lng": -91.033389
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Lively Bayou northeast of Baton Rouge, LA (USGS:07378635); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373954",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.583243,
+        "lng": -91.219553
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAYOU BATON ROUGE ABOVE BAKER CANAL NR BAKER,LA (USGS:07373954); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378050",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.505745,
+        "lng": -91.040104,
+        "elevation_m": -0.29
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite R. at Greenwell Spg Rd near Baton Rouge, LA (USGS:07378050); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373970",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.588798,
+        "lng": -91.173441
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAKER CANAL AT BAKER, LA. (USGS:07373970); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377842",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.579354,
+        "lng": -91.121773,
+        "elevation_m": 15.54
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "White Bayou near Baker, LA (USGS:07377842); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373950",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.591667,
+        "lng": -91.219444
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Baton Rouge near Baker, LA (USGS:07373950); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373986",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.58741,
+        "lng": -91.245387
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAYOU BATON ROUGE BELOW BAKER CANAL NR BAKER,LA (USGS:07373986); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377840",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.585187,
+        "lng": -91.125384,
+        "elevation_m": -0.23
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "White Bayou near Baton Rouge, LA (USGS:07377840); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:301745091134400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.296028,
+        "lng": -91.228996
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 208.8 SURFACE (USGS:301745091134400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378700",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.41408,
+        "lng": -91.013991,
+        "elevation_m": -0.31
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "JONES CK NR WOODLAWN SCHOOL NR BATON ROUGE, LA (USGS:07378700); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07381444",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.292139,
+        "lng": -91.235386
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAYOU PLAQUEMINE AT PLAQUEMINE LOCK (USGS:07381444); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378735",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.300194,
+        "lng": -91.114549
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BYU PAUL NR BURTVILLE, LA (USGS:07378735); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07374120",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.283528,
+        "lng": -91.222607
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI R @ PLAQUEMINE, LA (USGS:07374120); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373960",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.6125,
+        "lng": -91.170833
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Cypress Bayou (head of Baker Canal) near Zachary (USGS:07373960); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:301645091091700",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.279361,
+        "lng": -91.154828
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 204 (USGS:301645091091700); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378722",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.386859,
+        "lng": -91.007324,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Claycut Bayou at Antioch Rd near Baton Rouge, LA (USGS:07378722); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302840091230500",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.47797,
+        "lng": -91.384832
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Poydras @ Hwy 76 (USGS:302840091230500); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377754",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.596298,
+        "lng": -91.094272,
+        "elevation_m": 14.69
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River near Baker, LA (USGS:07377754); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302741090592900",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.461389,
+        "lng": -90.991389
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 55.2 (USGS:302741090592900); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378500",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.464079,
+        "lng": -90.99038,
+        "elevation_m": -0.41
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River near Denham Springs, LA (USGS:07378500); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:301838091191400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.31075,
+        "lng": -91.320665
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "IWW @ MI 50.0 NR PLAQUEMINE, LA (USGS:301838091191400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373965",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.616853,
+        "lng": -91.148996
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "South Canal near Baker, LA (USGS:07373965); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378495",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.467135,
+        "lng": -90.989269
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "COMITE RIVER NEAR DENHAM SPRINGS, LA. (USGS:07378495); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07373900",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.621575,
+        "lng": -91.205664,
+        "elevation_m": 18.14
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAYOU BATON ROUGE ABOVE BAKER, LA. (USGS:07373900); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378100",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.542966,
+        "lng": -91.020659,
+        "elevation_m": 6.1
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Beaver Bayou at Wax Rd near Baton Rouge, LA (USGS:07378100); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07379075",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.355193,
+        "lng": -91.015102,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Old Ward Crk Div. at Highland Rd. nr Baton Rouge (USGS:07379075); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302650090591000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.447222,
+        "lng": -90.986111
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 53.4 (USGS:302650090591000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378091",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.556854,
+        "lng": -91.031215
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BEAVER BAYOU TRIB. @ HOOPER RD NR B.R., LA (USGS:07378091); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302645090590400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.445833,
+        "lng": -90.984444
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Point Bar near mile 53.2 (USGS:302645090590400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:301838091194000",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.31075,
+        "lng": -91.327887
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "IWW(MORGAN C.TO PORT ALLEN) @ MI.50.0 (USGS:301838091194000); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377933",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.597965,
+        "lng": -91.07955
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Blackwater Bayou nr Fred, LA (USGS:07377933); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302552090585400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.431111,
+        "lng": -90.981667
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Point Bar near mile 51.2 (USGS:302552090585400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302523090585700",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.423056,
+        "lng": -90.9825
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 50.4 (USGS:302523090585700); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302624090584900",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.44,
+        "lng": -90.980278
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 52.8 (USGS:302624090584900); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377755",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.616853,
+        "lng": -91.115384,
+        "elevation_m": -0.48
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "White Bayou E. Div. Canal nr Baton Rouge, LA (USGS:07377755); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302558090584400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.432778,
+        "lng": -90.978889
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 51.4 (USGS:302558090584400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378083",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.561021,
+        "lng": -91.020937,
+        "elevation_m": 14.87
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Beaver Bayou at Hooper Road near Baton Rouge, LA (USGS:07378083); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302613090582600",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.436944,
+        "lng": -90.973889
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 51.8 (USGS:302613090582600); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378705",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.413247,
+        "lng": -90.976213
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Jones Creek at Woodlake Dr. nr Baton Rouge, LA (USGS:07378705); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378510",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.441857,
+        "lng": -90.972324,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "AMITE R AT 4H CAMP NR DENHAM SPRINGS (USGS:07378510); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378820",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.335749,
+        "lng": -91.012046
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BYU MANCHAC NR KLEINPETER, LA (USGS:07378820); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378746",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.321389,
+        "lng": -91.020944,
+        "elevation_m": -0.15
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Manchac at Alligator B. near Kleinpeter, LA (USGS:07378746); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378748",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.323527,
+        "lng": -91.018158,
+        "elevation_m": -0.15
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bluff Swamp near Kleinpeter, LA (USGS:07378748); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378710",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.39797,
+        "lng": -90.973157
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "AMITE RIVER NEAR BATON ROUGE, LA. (USGS:07378710); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302508090580200",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.418889,
+        "lng": -90.967222
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 49.4 (USGS:302508090580200); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302451090575800",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.414167,
+        "lng": -90.966111
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 48.7 (USGS:302451090575800); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302952090581200",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.497778,
+        "lng": -90.97
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 59.7 (USGS:302952090581200); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377800",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.636111,
+        "lng": -91.127222
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "White Bayou near Zachary. LA (USGS:07377800); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07380100",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.342971,
+        "lng": -90.993157
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "BAYOU MANCHAC AT HOPE VILLA, LA. (USGS:07380100); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302331090580400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.391944,
+        "lng": -90.967778
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Point Bar near mile 45.9 (USGS:302331090580400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302446090574400",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.412778,
+        "lng": -90.962222
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Point Bar near mile 48.5 (USGS:302446090574400); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302409090574600",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.4025,
+        "lng": -90.962778
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 47.5 (USGS:302409090574600); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378075",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.587687,
+        "lng": -91.024826,
+        "elevation_m": -0.24
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Beaver Bayou at Denham Road nr Baton Rouge, LA (USGS:07378075); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:0737775103",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.632214,
+        "lng": -91.101047,
+        "elevation_m": 17.98
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River .90 miles ds Hwy 64 near Zachary, LA (USGS:0737775103); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377300",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.534911,
+        "lng": -90.980658,
+        "elevation_m": -0.44
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River at Magnolia, LA (USGS:07377300); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:0737775102",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.633339,
+        "lng": -91.099461,
+        "elevation_m": 18.29
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River .77 miles ds Hwy 64 near Zachary, LA (USGS:0737775102); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378725",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.373248,
+        "lng": -90.969545,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Clay Cut Byu nr Hope Villa, LA (USGS:07378725); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:0737775101",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.635019,
+        "lng": -91.098667,
+        "elevation_m": 18.29
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River .64 miles ds Hwy 64 near Zachary, LA (USGS:0737775101); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302317090573700",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.388056,
+        "lng": -90.960278
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 45.7 (USGS:302317090573700); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07381445",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.268529,
+        "lng": -91.320943
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "INTRACOASTAL WATERWAY NEAR PLAQUEMINE, LA. (USGS:07381445); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07381427",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.414722,
+        "lng": -91.432083,
+        "elevation_m": -0.98
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Grosse Tete S. of I10 at Grosse Tete, LA (USGS:07381427); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377780",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.649352,
+        "lng": -91.131495,
+        "elevation_m": 14.98
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "White Bayou at State Hwy 64 near Zachary, LA (USGS:07377780); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377779",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.651667,
+        "lng": -91.141944
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Tributary to White's Bayou at Zachary, LA (USGS:07377779); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302326090570800",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.390556,
+        "lng": -90.952222
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 44.6 (USGS:302326090570800); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07377750",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.643241,
+        "lng": -91.09455,
+        "elevation_m": 17.86
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Comite River near Zachary, LA (USGS:07377750); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07378070",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.625742,
+        "lng": -91.052327
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Beaver Bayou nr Fred, LA (USGS:07378070); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:301400091074700",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.233529,
+        "lng": -91.129827
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "MISSISSIPPI RIVER AT MILE 198 (USGS:301400091074700); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07380102",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.33686,
+        "lng": -90.96899,
+        "elevation_m": 0.22
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Welsh Gully at J. Broussard Rd nr Prairieville, LA (USGS:07380102); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07380117",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.483523,
+        "lng": -90.93899
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "GRAYS CK @ DENHAM SPRINGS, LA (USGS:07380117); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:302315090563900",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.3875,
+        "lng": -90.944167
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Channel near mile 43.5 (USGS:302315090563900); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:303501090591100",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.583611,
+        "lng": -90.986389
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Amite River Point Bar near mile 69.6 (USGS:303501090591100); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "USGS:07381440",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.442694,
+        "lng": -91.451776,
+        "elevation_m": 0.0
+      },
+      "source": "USGS NWIS Water Services",
+      "quality_flag": "estimated",
+      "notes": "Bayou Grosse Tete at Rosedale, LA (USGS:07381440); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "WQP:USGS-302642091112101",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.445191,
+        "lng": -91.189274
+      },
+      "source": "EPA Water Quality Portal",
+      "quality_flag": "estimated",
+      "notes": "EB-109 (WQP:USGS-302642091112101); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "WQP:22LAGWTR-199003",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.447367,
+        "lng": -91.189909
+      },
+      "source": "EPA Water Quality Portal",
+      "quality_flag": "estimated",
+      "notes": "EB-630 (WQP:22LAGWTR-199003); no live reading retrievable for a schema-supported parameter. Value is the survey-area baseline carried over for schema completeness (quality_flag=estimated); raw station record is in stations_metadata."
+    },
+    {
+      "schema_version": "1.0.0",
+      "sensor_id": "VIRTUAL:sensor-gap-478:c38d923f",
+      "sensor_type": "water_quality",
+      "parameter": "temperature",
+      "value": 29.0,
+      "unit": "celsius",
+      "timestamp": "2026-09-29T20:19:05Z",
+      "location": {
+        "lat": 30.525157,
+        "lng": -91.283879,
+        "elevation_m": 12.98
+      },
+      "source": "sensor-gap v0.1 (owockibot bounty #478)",
+      "quality_flag": "estimated",
+      "notes": "Proposed new monitoring station (virtual sensor). Largest sensor gap lies along bearing 315 deg from the input river point. Proposed station at 50% of the 25 km search radius along that bearing; EPQS elevation 13.0 m. Higher ground is treated as an upstream proxy (documented heuristic); true NHDPlus flowline tracing is out of scope for v0.1."
+    }
+  ],
+  "stations_metadata": [
+    {
+      "sensor_id": "USGS:07374000",
+      "name": "Mississippi River at Baton Rouge, LA",
+      "lat": 30.44566667,
+      "lon": -91.1915556,
+      "distance_km": 0.005643698174701324,
+      "bearing": 131.0474604260379,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379502",
+      "name": "Corporation Canal at Oklahoma St. at B. R., LA",
+      "lat": 30.43491327,
+      "lon": -91.186774,
+      "distance_km": 1.2855670880041792,
+      "bearing": 158.90562373208627,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07374010",
+      "name": "MISSISSIPPI RIVER (BATROUGE GAGE CORR TO MSL)",
+      "lat": 30.44852408,
+      "lon": -91.2070524,
+      "distance_km": 1.5141999361419718,
+      "bearing": 281.9731047881293,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302540091121000",
+      "name": "MISSISSIPPI R @ PORT ALLEN LOCK FOREBAY",
+      "lat": 30.427969,
+      "lon": -91.2028855,
+      "distance_km": 2.2489586391788685,
+      "bearing": 208.7594773805518,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07374050",
+      "name": "(COE) Mississippi River at Lock at Baton Rouge, LA",
+      "lat": 30.42935786,
+      "lon": -91.2070523,
+      "distance_km": 2.3444989478871627,
+      "bearing": 219.1920609614404,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07381412",
+      "name": "INTRACOASTAL WATERWAY NR PORT ALLEN LA",
+      "lat": 30.4322222,
+      "lon": -91.2104722,
+      "distance_km": 2.3493401248769286,
+      "bearing": 230.36877651899584,
+      "elevation_m": -0.17,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302800091114800",
+      "name": "MISSISSIPPI RIVER AT MILE 231",
+      "lat": 30.46685698,
+      "lon": -91.1967745,
+      "distance_km": 2.4042644279747516,
+      "bearing": 348.0960532369867,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373999",
+      "name": "Trib. to Capitol Lake @ 21st St Pump Station",
+      "lat": 30.45991265,
+      "lon": -91.16705139,
+      "distance_km": 2.834558962951832,
+      "bearing": 56.10806941771517,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379490",
+      "name": "BYU DUPLANTIER AB CITY PARK LK, AT B.R., LA",
+      "lat": 30.42963559,
+      "lon": -91.1681624,
+      "distance_km": 2.8704798509947147,
+      "bearing": 128.4778730725351,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379503",
+      "name": "CORPORATION C.AT E.ROOSEVELT ST. AT B. R. LA.",
+      "lat": 30.421858,
+      "lon": -91.1767736,
+      "distance_km": 3.0081465461965853,
+      "bearing": 151.79703044048279,
+      "elevation_m": -0.15,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379505",
+      "name": "CORPORATION C.AT CHIMES ST.,AT BATON ROUGE, LA.",
+      "lat": 30.41741367,
+      "lon": -91.1728846,
+      "distance_km": 3.6211349146979486,
+      "bearing": 150.29093179744052,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379500",
+      "name": "BYU DUPLANTIER @ CITY PARK LK @ BATON ROUGE, LA",
+      "lat": 30.42102469,
+      "lon": -91.1667734,
+      "distance_km": 3.6323251331196107,
+      "bearing": 139.0518989197859,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07381413",
+      "name": "INTRACOASTAL WATERWAY TRIB.NR PORT ALLEN, LA.",
+      "lat": 30.44519086,
+      "lon": -91.2314975,
+      "distance_km": 3.82509239772632,
+      "bearing": 269.1620637125443,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302827091100401",
+      "name": "OSAGE RAIN GAGE AT FIRE STA. NO. 2 AT R.R.",
+      "lat": 30.47435676,
+      "lon": -91.1678848,
+      "distance_km": 3.9141393213661155,
+      "bearing": 35.49588672621309,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379000",
+      "name": "Ward Creek at Government St at Baton Rouge, LA",
+      "lat": 30.44446855,
+      "lon": -91.1431618,
+      "distance_km": 4.645441871109169,
+      "bearing": 91.67684685251498,
+      "elevation_m": -0.64,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379510",
+      "name": "BYU DUPLANTIER @ STANFORD AV @ BATON ROUGE, LA",
+      "lat": 30.4071361,
+      "lon": -91.164551,
+      "distance_km": 5.011394918003285,
+      "bearing": 148.8271965047403,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379507",
+      "name": "CORPORATION C.AT CAMPUS DR AT BATON ROUGE, LA.",
+      "lat": 30.40408065,
+      "lon": -91.17094,
+      "distance_km": 5.034004579933654,
+      "bearing": 156.82162428843048,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379010",
+      "name": "Ward Creek at College Drive at Baton Rouge, LA",
+      "lat": 30.4357465,
+      "lon": -91.1331614,
+      "distance_km": 5.710619876535576,
+      "bearing": 101.16044594762303,
+      "elevation_m": -0.35,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379550",
+      "name": "Bayou Duplantier at Lee Dr @ Baton Rouge, LA",
+      "lat": 30.40158069,
+      "lon": -91.1526062,
+      "distance_km": 6.168185297811917,
+      "bearing": 142.6781017912653,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302701091072701",
+      "name": "USGS RAIN GAGE AT FLORIDA & CARROLLTON AT B.R.",
+      "lat": 30.45046838,
+      "lon": -91.1242724,
+      "distance_km": 6.475759186367584,
+      "bearing": 85.28644241178569,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378778",
+      "name": "Bayou Fountain at Lee Drive at Baton Rouge, LA",
+      "lat": 30.3922222,
+      "lon": -91.1611111,
+      "distance_km": 6.6262693279704585,
+      "bearing": 153.8115647856182,
+      "elevation_m": 1.22,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373996",
+      "name": "MONTE SANO BAYOU AT BATON ROUGE, LA.",
+      "lat": 30.50296719,
+      "lon": -91.1701073,
+      "distance_km": 6.692655862311354,
+      "bearing": 17.9188490676936,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379400",
+      "name": "DAWSON CREEK @ PERKINS ROAD @ BATON ROUGE, LA.",
+      "lat": 30.41046935,
+      "lon": -91.1314946,
+      "distance_km": 6.968309462293878,
+      "bearing": 124.19172114690178,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378008",
+      "name": "Hurricane Creek at Baton Rouge, LA",
+      "lat": 30.48213429,
+      "lon": -91.1281616,
+      "distance_km": 7.306301871956185,
+      "bearing": 56.3079809507725,
+      "elevation_m": -0.66,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378590",
+      "name": "Trib. to Jones Creek nr Lobdell Blvd @ Baton Rouge",
+      "lat": 30.4568571,
+      "lon": -91.1114943,
+      "distance_km": 7.778246467312588,
+      "bearing": 80.80195685953623,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378585",
+      "name": "Trib to Jones Creek nr Tom Drive @ Baton Rouge, LA",
+      "lat": 30.4615792,
+      "lon": -91.1117721,
+      "distance_km": 7.852933673913165,
+      "bearing": 76.98605647547492,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302543091162400",
+      "name": "IWW @ MI 60.0 NR PORT ALLEN, LA",
+      "lat": 30.4288027,
+      "lon": -91.2734424,
+      "distance_km": 8.068102165343758,
+      "bearing": 256.5540850594608,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302749091063500",
+      "name": "DRAINAGE CANAL AT TOM DR .1 MI E WOODDALE BLVD",
+      "lat": 30.46380137,
+      "lon": -91.1098277,
+      "distance_km": 8.092455496252866,
+      "bearing": 75.57731545791819,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378790",
+      "name": "Elbow Bayou Trib. at Baton Rouge, LA",
+      "lat": 30.37491467,
+      "lon": -91.1689954,
+      "distance_km": 8.164015181562386,
+      "bearing": 164.59639182030537,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302743091063001",
+      "name": "TOM DR. RAIN GAGE AT LA.D0TD COMPOUND AT B.R.",
+      "lat": 30.46213474,
+      "lon": -91.1084387,
+      "distance_km": 8.178148865130103,
+      "bearing": 77.06680209084158,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:303106091122000",
+      "name": "MISSISSIPPI R @ WILKINSON POINT NR BATON ROUGE",
+      "lat": 30.51852244,
+      "lon": -91.2056638,
+      "distance_km": 8.208868836785308,
+      "bearing": 350.55430844800884,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302240091140000",
+      "name": "MISSISSIPPI RIVER AT MILE 224",
+      "lat": 30.37797018,
+      "lon": -91.2334416,
+      "distance_km": 8.533386531084586,
+      "bearing": 208.05805134639476,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:303120091114300",
+      "name": "LAKE KERNAN (STN. 1) MID-LAKE",
+      "lat": 30.5224112,
+      "lon": -91.1953858,
+      "distance_km": 8.537607035942441,
+      "bearing": 357.5656658587018,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373994",
+      "name": "Monte Sano Bayou trib nr Harding Blvd, at BR, LA",
+      "lat": 30.51963344,
+      "lon": -91.1620515,
+      "distance_km": 8.6949798920958,
+      "bearing": 18.99739820188563,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379102",
+      "name": "Tributry to North Branch Ward Creek at Baton Rouge",
+      "lat": 30.41777778,
+      "lon": -91.1025,
+      "distance_km": 9.089277197310432,
+      "bearing": 109.9512254416029,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378792",
+      "name": "Elbow Bayou nr Baton Rouge, LA",
+      "lat": 30.36935924,
+      "lon": -91.1576061,
+      "distance_km": 9.093170789777284,
+      "bearing": 158.9825841021186,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302220091140800",
+      "name": "MISSISSIPPI RIVER AT MILE 224 AT LUKEVILLE",
+      "lat": 30.37241475,
+      "lon": -91.2356638,
+      "distance_km": 9.17940041747357,
+      "bearing": 207.42017509166618,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378015",
+      "name": "Roberts Canal at Baton Rouge, LA",
+      "lat": 30.50630036,
+      "lon": -91.1253839,
+      "distance_km": 9.256025013621072,
+      "bearing": 43.26362868126711,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379050",
+      "name": "Ward Creek at Essen Lane near Baton Rouge, LA",
+      "lat": 30.4049139,
+      "lon": -91.1034382,
+      "distance_km": 9.592909780185806,
+      "bearing": 118.19170323482422,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:303153091105001",
+      "name": "SCOTLANDVILLE RAIN GAGE AT FIRE STA.NO.16 AT BR",
+      "lat": 30.5315776,
+      "lon": -91.1806632,
+      "distance_km": 9.606485273632737,
+      "bearing": 6.2600416990241,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379090",
+      "name": "N BRANCH WARD CREEK @ GOODWOOD BLVD. @ B. R. LA.",
+      "lat": 30.4429685,
+      "lon": -91.0909381,
+      "distance_km": 9.654588169742965,
+      "bearing": 91.77729328560213,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379085",
+      "name": "N BR WARD CR TRIB AT BATON ROUGE, LA",
+      "lat": 30.44546846,
+      "lon": -91.0906604,
+      "distance_km": 9.676340890267113,
+      "bearing": 90.12687434356735,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379950",
+      "name": "DAWSON CK. @ STARING LANE NR. BATON ROUGE, LA.",
+      "lat": 30.3888032,
+      "lon": -91.11177169,
+      "distance_km": 9.930837786198163,
+      "bearing": 129.5534403129003,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:303201091123300",
+      "name": "MISSISSIPPI R @ BATON ROUGE HARBOR @ BATON ROUGE",
+      "lat": 30.53379985,
+      "lon": -91.209275,
+      "distance_km": 9.941575046391977,
+      "bearing": 350.19601241910675,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378788",
+      "name": "Elbow Bayou at Baton Rouge, LA",
+      "lat": 30.35769286,
+      "lon": -91.1723287,
+      "distance_km": 9.958950536392662,
+      "bearing": 169.29993198355317,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379100",
+      "name": "North Branch Ward Creek at Baton Rouge, LA",
+      "lat": 30.41796914,
+      "lon": -91.0914935,
+      "distance_km": 10.080965591830816,
+      "bearing": 107.78554891877354,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378595",
+      "name": "JONES CR. AT AIRLINE HWY. AT BATON ROUGE, LA.",
+      "lat": 30.46463465,
+      "lon": -91.0876048,
+      "distance_km": 10.188166653235763,
+      "bearing": 78.04724140949742,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379095",
+      "name": "NORTH BRANCH WARD CREEK AT OLD HAMMOND HWY.",
+      "lat": 30.43074659,
+      "lon": -91.08649349,
+      "distance_km": 10.212781774951804,
+      "bearing": 99.34341138270827,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373993",
+      "name": "MONTE SANO AT RYAN AIRPORT, AT BATON ROUGE, LA.",
+      "lat": 30.53574415,
+      "lon": -91.1589959,
+      "distance_km": 10.488514583849549,
+      "bearing": 17.320549718704,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378597",
+      "name": "Jones Creek at Monterrey Blvd at Baton Rouge, LA",
+      "lat": 30.4649124,
+      "lon": -91.0842714,
+      "distance_km": 10.50721470947879,
+      "bearing": 78.24166276292158,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378010",
+      "name": "Hurricane Creek near Baton Rouge, LA",
+      "lat": 30.48741187,
+      "lon": -91.0889939,
+      "distance_km": 10.87285035383586,
+      "bearing": 64.72323680583725,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378600",
+      "name": "Jones Creek at Florida Blvd. at Baton Rouge, LA",
+      "lat": 30.45602373,
+      "lon": -91.0748267,
+      "distance_km": 11.25226538135633,
+      "bearing": 84.11495873645288,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378800",
+      "name": "BAYOU FOUNTAIN AT GARDERE LANE NR. B. R. LA.",
+      "lat": 30.3646371,
+      "lon": -91.1212162,
+      "distance_km": 11.261000069689361,
+      "bearing": 143.15455835373416,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379060",
+      "name": "Ward Creek at Bluebonnet Blvd at Baton Rouge, LA",
+      "lat": 30.39410529,
+      "lon": -91.0873368,
+      "distance_km": 11.526703877177574,
+      "bearing": 119.82285842112952,
+      "elevation_m": 1.76,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378020",
+      "name": "Roberts Canal near Baton Rouge, LA",
+      "lat": 30.49880048,
+      "lon": -91.0881606,
+      "distance_km": 11.538426067227869,
+      "bearing": 59.19496596738918,
+      "elevation_m": -0.62,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379960",
+      "name": "Dawson Cr. at Bluebonnet Blvd near Baton Rouge, LA",
+      "lat": 30.38241445,
+      "lon": -91.0942712,
+      "distance_km": 11.688802692940735,
+      "bearing": 126.99091291140564,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302046091141200",
+      "name": "MISSISSIPPI RIVER AT MILE 222.0 SURFACE",
+      "lat": 30.34630424,
+      "lon": -91.2367748,
+      "distance_km": 11.871236583338773,
+      "bearing": 201.41778049504748,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377900",
+      "name": "Cypress Bayou at Plank Rd near Baton Rouge, LA",
+      "lat": 30.5424106,
+      "lon": -91.1384398,
+      "distance_km": 11.899019247430054,
+      "bearing": 25.331188899394533,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378620",
+      "name": "Jones Creek at Goodwood Blvd. at Baton Rouge, LA",
+      "lat": 30.44602397,
+      "lon": -91.066493,
+      "distance_km": 11.993069963155603,
+      "bearing": 89.7962019885585,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377920",
+      "name": "Cypress Bayou at Hooper Road nr Baton Rouge, LA",
+      "lat": 30.528522,
+      "lon": -91.1098279,
+      "distance_km": 12.091658544804456,
+      "bearing": 40.371043697018024,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378670",
+      "name": "Weiner Creek nr Baton Rouge, LA",
+      "lat": 30.4190802,
+      "lon": -91.0653817,
+      "distance_km": 12.457970240705635,
+      "bearing": 103.71283312428295,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378810",
+      "name": "Bayou Fountain at Bluebonnet Blvd near  B.R., LA",
+      "lat": 30.35852615,
+      "lon": -91.1081603,
+      "distance_km": 12.569665403088877,
+      "bearing": 140.43752103900272,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379001",
+      "name": "WARD CREEK AT GOVERNMENT ST. (URBAN)",
+      "lat": 30.33935996,
+      "lon": -91.1431611,
+      "distance_km": 12.704463313657763,
+      "bearing": 158.53722264467513,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377870",
+      "name": "Comite River at Hooper Road near Baton Rouge, LA",
+      "lat": 30.53074415,
+      "lon": -91.0937164,
+      "distance_km": 13.31897783078543,
+      "bearing": 44.74024637163825,
+      "elevation_m": 8.68,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378000",
+      "name": "Comite River near Comite, LA",
+      "lat": 30.512689,
+      "lon": -91.0737158,
+      "distance_km": 13.531513852921119,
+      "bearing": 56.57012225056917,
+      "elevation_m": 6.56,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378615",
+      "name": "Trib.to Jones Creek nr Goodwood Blvd @ Baton Rouge",
+      "lat": 30.4321354,
+      "lon": -91.0498258,
+      "distance_km": 13.675170918619761,
+      "bearing": 96.29645426685198,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302657091025600",
+      "name": "DRAINAGE CANAL GOODWOOD BLVD .5 MI E SHERWOOD FORS",
+      "lat": 30.4493572,
+      "lon": -91.0489926,
+      "distance_km": 13.676453741758541,
+      "bearing": 88.25995718746344,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378675",
+      "name": "Weiner Creek at Baton Rouge, LA",
+      "lat": 30.4199135,
+      "lon": -91.0514925,
+      "distance_km": 13.73541021403344,
+      "bearing": 102.01387865443917,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:073814135",
+      "name": "Intracoastal Waterway at Morley, LA",
+      "lat": 30.395193,
+      "lon": -91.32316489,
+      "distance_km": 13.808995479397868,
+      "bearing": 246.0356024055104,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07380000",
+      "name": "WARD CR AT SIEGENS LANE NR BATON ROUGE, LA.",
+      "lat": 30.3751924,
+      "lon": -91.0695482,
+      "distance_km": 14.087569113459669,
+      "bearing": 123.78492493858954,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378650",
+      "name": "Jones Cr. at Old Hammond Hwy near Baton Rouge, LA",
+      "lat": 30.4407463,
+      "lon": -91.044548,
+      "distance_km": 14.107847595718974,
+      "bearing": 92.20036730338586,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378720",
+      "name": "Clay Cut Bayou at Siegen Lane nr Baton Rouge, LA",
+      "lat": 30.39630298,
+      "lon": -91.0556591,
+      "distance_km": 14.144902888517782,
+      "bearing": 112.81535284804067,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378647",
+      "name": "Lively Bayou at Old Hammond Hwy at Baton Rouge, LA",
+      "lat": 30.44130184,
+      "lon": -91.0426035,
+      "distance_km": 14.291828307921975,
+      "bearing": 91.92324247265054,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:301900091112500",
+      "name": "MISSISSIPPI RIVER AT MILE 212",
+      "lat": 30.31686048,
+      "lon": -91.19038449,
+      "distance_km": 14.32677545082342,
+      "bearing": 179.53338579642218,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302257091192500",
+      "name": "IWW @ MI 55.0 NR PORT ALLEN, LA",
+      "lat": 30.3826933,
+      "lon": -91.3237205,
+      "distance_km": 14.477551306541303,
+      "bearing": 241.09150024049586,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377940",
+      "name": "Blackwater Bayou nr Baton Rouge, LA",
+      "lat": 30.53518846,
+      "lon": -91.0814939,
+      "distance_km": 14.502471885235574,
+      "bearing": 46.6471012121022,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377890",
+      "name": "Cypress Bayou at Baker, LA",
+      "lat": 30.5754654,
+      "lon": -91.1670518,
+      "distance_km": 14.619636001433197,
+      "bearing": 9.250439924678972,
+      "elevation_m": -0.47,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302510091203200",
+      "name": "Choctaw Bayou nr Brusly",
+      "lat": 30.41944444,
+      "lon": -91.3422222,
+      "distance_km": 14.733080393304213,
+      "bearing": 258.60886085127345,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378815",
+      "name": "Bayou Fountain at Burbank Dr near Baton Rouge, LA",
+      "lat": 30.35,
+      "lon": -91.0836111,
+      "distance_km": 14.849532380237559,
+      "bearing": 135.74813135015563,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378805",
+      "name": "BAYOU FOUNTAIN TRIB. NEAR BATON ROUGE, LA.",
+      "lat": 30.350193,
+      "lon": -91.0817706,
+      "distance_km": 14.957933478895168,
+      "bearing": 135.20580883927227,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07381429",
+      "name": "Choctaw Bayou at I-10 east of Grosse Tete, LA",
+      "lat": 30.44380348,
+      "lon": -91.3478872,
+      "distance_km": 14.983668631107045,
+      "bearing": 269.2331766612764,
+      "elevation_m": -3.28,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378645",
+      "name": "Lively Bayou southeast of Baton Rouge, LA",
+      "lat": 30.44657947,
+      "lon": -91.0345478,
+      "distance_km": 15.055623090549107,
+      "bearing": 89.58804606213778,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378655",
+      "name": "Jones Creek, Woodland Ridge Blvd, @ Baton Rouge,LA",
+      "lat": 30.42296896,
+      "lon": -91.0367699,
+      "distance_km": 15.057741896557989,
+      "bearing": 99.6241341844181,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378721",
+      "name": "Trib.to Claycut Bayou nr Industriplex Blvd nr B.R,",
+      "lat": 30.3882476,
+      "lon": -91.0489922,
+      "distance_km": 15.093376334319853,
+      "bearing": 115.00443108603127,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373980",
+      "name": "Baker Canal near Baker, LA",
+      "lat": 30.58046539,
+      "lon": -91.2120529,
+      "distance_km": 15.112773288681083,
+      "bearing": 352.55607932167834,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378640",
+      "name": "Lively Bayou east of Baton Rouge, LA",
+      "lat": 30.4613013,
+      "lon": -91.0345478,
+      "distance_km": 15.153793793037964,
+      "bearing": 83.38665096007395,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377760",
+      "name": "Comite River at Comite Dr near Baton Rouge, LA",
+      "lat": 30.55827126,
+      "lon": -91.0982722,
+      "distance_km": 15.382894373040598,
+      "bearing": 35.51544190774007,
+      "elevation_m": 11.1,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378635",
+      "name": "Lively Bayou northeast of Baton Rouge, LA",
+      "lat": 30.47161495,
+      "lon": -91.0333895,
+      "distance_km": 15.435754790834215,
+      "bearing": 79.20056939422375,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373954",
+      "name": "BAYOU BATON ROUGE ABOVE BAKER CANAL NR BAKER,LA",
+      "lat": 30.5832431,
+      "lon": -91.2195531,
+      "distance_km": 15.526741437950207,
+      "bearing": 350.07616844031304,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378050",
+      "name": "Comite R. at Greenwell Spg Rd near Baton Rouge, LA",
+      "lat": 30.50574466,
+      "lon": -91.0401038,
+      "distance_km": 15.979939360582266,
+      "bearing": 65.26487129813916,
+      "elevation_m": -0.29,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373970",
+      "name": "BAKER CANAL AT BAKER, LA.",
+      "lat": 30.58879844,
+      "lon": -91.1734408,
+      "distance_km": 16.006620449586876,
+      "bearing": 6.234270267359818,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377842",
+      "name": "White Bayou near Baker, LA",
+      "lat": 30.5793541,
+      "lon": -91.1217728,
+      "distance_km": 16.297674657392875,
+      "bearing": 24.214680763350998,
+      "elevation_m": 15.54,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373950",
+      "name": "Bayou Baton Rouge near Baker, LA",
+      "lat": 30.59166667,
+      "lon": -91.2194444,
+      "distance_km": 16.448447754978535,
+      "bearing": 350.67496733113444,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373986",
+      "name": "BAYOU BATON ROUGE BELOW BAKER CANAL NR BAKER,LA",
+      "lat": 30.58740974,
+      "lon": -91.2453872,
+      "distance_km": 16.57839193432491,
+      "bearing": 341.90676600485136,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377840",
+      "name": "White Bayou near Baton Rouge, LA",
+      "lat": 30.5851873,
+      "lon": -91.125384,
+      "distance_km": 16.757185060983055,
+      "bearing": 22.22574112203671,
+      "elevation_m": -0.23,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:301745091134400",
+      "name": "MISSISSIPPI RIVER AT MILE 208.8 SURFACE",
+      "lat": 30.2960276,
+      "lon": -91.2289965,
+      "distance_km": 17.025113014549028,
+      "bearing": 192.17445173220895,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378700",
+      "name": "JONES CK NR WOODLAWN SCHOOL NR BATON ROUGE, LA",
+      "lat": 30.41408028,
+      "lon": -91.0139914,
+      "distance_km": 17.38790024187307,
+      "bearing": 101.6210504174341,
+      "elevation_m": -0.31,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07381444",
+      "name": "BAYOU PLAQUEMINE AT PLAQUEMINE LOCK",
+      "lat": 30.2921388,
+      "lon": -91.2353856,
+      "distance_km": 17.584342784964996,
+      "bearing": 193.8319883502575,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378735",
+      "name": "BYU PAUL NR BURTVILLE, LA",
+      "lat": 30.30019424,
+      "lon": -91.114549,
+      "distance_km": 17.78805097320566,
+      "bearing": 155.4266874670585,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07374120",
+      "name": "MISSISSIPPI R @ PLAQUEMINE, LA",
+      "lat": 30.2835279,
+      "lon": -91.2226074,
+      "distance_km": 18.276456667113212,
+      "bearing": 189.37571062674675,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373960",
+      "name": "Cypress Bayou (head of Baker Canal) near Zachary",
+      "lat": 30.6125,
+      "lon": -91.1708333,
+      "distance_km": 18.653662108562234,
+      "bearing": 6.1158041799514535,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:301645091091700",
+      "name": "MISSISSIPPI RIVER AT MILE 204",
+      "lat": 30.27936139,
+      "lon": -91.1548277,
+      "distance_km": 18.829489900226047,
+      "bearing": 169.1913714265147,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378722",
+      "name": "Claycut Bayou at Antioch Rd near Baton Rouge, LA",
+      "lat": 30.38685874,
+      "lon": -91.0073244,
+      "distance_km": 18.84281779376218,
+      "bearing": 110.27150270796875,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302840091230500",
+      "name": "Bayou Poydras @ Hwy 76",
+      "lat": 30.47797,
+      "lon": -91.3848316,
+      "distance_km": 18.864944487694896,
+      "bearing": 281.01388248878015,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377754",
+      "name": "Comite River near Baker, LA",
+      "lat": 30.59629809,
+      "lon": -91.0942722,
+      "distance_km": 19.165992320361184,
+      "bearing": 29.08126428331593,
+      "elevation_m": 14.69,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302741090592900",
+      "name": "Amite River Channel near mile 55.2",
+      "lat": 30.46138889,
+      "lon": -90.9913889,
+      "distance_km": 19.270263693276448,
+      "bearing": 84.75520598470598,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378500",
+      "name": "Amite River near Denham Springs, LA",
+      "lat": 30.464079,
+      "lon": -90.99038,
+      "distance_km": 19.395544453590734,
+      "bearing": 83.90069679250291,
+      "elevation_m": -0.41,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:301838091191400",
+      "name": "IWW @ MI 50.0 NR PLAQUEMINE, LA",
+      "lat": 30.31075034,
+      "lon": -91.3206648,
+      "distance_km": 19.45405991222385,
+      "bearing": 219.55818862201846,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373965",
+      "name": "South Canal near Baker, LA",
+      "lat": 30.61685326,
+      "lon": -91.1489958,
+      "distance_km": 19.463915733109452,
+      "bearing": 12.090825830317101,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378495",
+      "name": "COMITE RIVER NEAR DENHAM SPRINGS, LA.",
+      "lat": 30.4671345,
+      "lon": -90.9892689,
+      "distance_km": 19.539681657323385,
+      "bearing": 82.94246751576753,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07373900",
+      "name": "BAYOU BATON ROUGE ABOVE BAKER, LA.",
+      "lat": 30.62157549,
+      "lon": -91.2056639,
+      "distance_km": 19.60279479532737,
+      "bearing": 356.0634656721871,
+      "elevation_m": 18.14,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378100",
+      "name": "Beaver Bayou at Wax Rd near Baton Rouge, LA",
+      "lat": 30.5429659,
+      "lon": -91.020659,
+      "distance_km": 19.62735337268856,
+      "bearing": 56.518206445435624,
+      "elevation_m": 6.1,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07379075",
+      "name": "Old Ward Crk Div. at Highland Rd. nr Baton Rouge",
+      "lat": 30.35519288,
+      "lon": -91.0151022,
+      "distance_km": 19.693064996483205,
+      "bearing": 120.68840206151702,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302650090591000",
+      "name": "Amite River Channel near mile 53.4",
+      "lat": 30.4472222,
+      "lon": -90.9861111,
+      "distance_km": 19.699195505082155,
+      "bearing": 89.45562936227708,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378091",
+      "name": "BEAVER BAYOU TRIB. @ HOOPER RD NR B.R., LA",
+      "lat": 30.55685449,
+      "lon": -91.0312148,
+      "distance_km": 19.72009616866173,
+      "bearing": 51.14766932887778,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302645090590400",
+      "name": "Amite River Point Bar near mile 53.2",
+      "lat": 30.44583333,
+      "lon": -90.9844444,
+      "distance_km": 19.858387599166498,
+      "bearing": 89.90473965203711,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:301838091194000",
+      "name": "IWW(MORGAN C.TO PORT ALLEN) @ MI.50.0",
+      "lat": 30.3107504,
+      "lon": -91.3278872,
+      "distance_km": 19.902165669950804,
+      "bearing": 221.09871499264005,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377933",
+      "name": "Blackwater Bayou nr Fred, LA",
+      "lat": 30.59796469,
+      "lon": -91.0795496,
+      "distance_km": 20.046397017429666,
+      "bearing": 32.34314669514299,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302552090585400",
+      "name": "Amite River Point Bar near mile 51.2",
+      "lat": 30.4311111,
+      "lon": -90.9816667,
+      "distance_km": 20.19144869029121,
+      "bearing": 94.55501332368493,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302523090585700",
+      "name": "Amite River Channel near mile 50.4",
+      "lat": 30.42305556,
+      "lon": -90.9825,
+      "distance_km": 20.204627718890812,
+      "bearing": 97.10597468044864,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302624090584900",
+      "name": "Amite River Channel near mile 52.8",
+      "lat": 30.44,
+      "lon": -90.9802778,
+      "distance_km": 20.268319670701512,
+      "bearing": 91.73845118870452,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377755",
+      "name": "White Bayou E. Div. Canal nr Baton Rouge, LA",
+      "lat": 30.61685319,
+      "lon": -91.1153839,
+      "distance_km": 20.38333252978974,
+      "bearing": 20.965866498017647,
+      "elevation_m": -0.48,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302558090584400",
+      "name": "Amite River Channel near mile 51.4",
+      "lat": 30.43277778,
+      "lon": -90.9788889,
+      "distance_km": 20.442869687864782,
+      "bearing": 93.97663279399859,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378083",
+      "name": "Beaver Bayou at Hooper Road near Baton Rouge, LA",
+      "lat": 30.56102103,
+      "lon": -91.0209368,
+      "distance_km": 20.77907294239705,
+      "bearing": 51.85083716708141,
+      "elevation_m": 14.87,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302613090582600",
+      "name": "Amite River Channel near mile 51.8",
+      "lat": 30.43694444,
+      "lon": -90.9738889,
+      "distance_km": 20.893900860221063,
+      "bearing": 92.6155697380591,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378705",
+      "name": "Jones Creek at Woodlake Dr. nr Baton Rouge, LA",
+      "lat": 30.41324703,
+      "lon": -90.9762126,
+      "distance_km": 20.9638678383053,
+      "bearing": 99.85739083905537,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378510",
+      "name": "AMITE R AT 4H CAMP NR DENHAM SPRINGS",
+      "lat": 30.4418574,
+      "lon": -90.9723238,
+      "distance_km": 21.025059277092232,
+      "bearing": 91.10890788046282,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378820",
+      "name": "BYU MANCHAC NR KLEINPETER, LA",
+      "lat": 30.33574893,
+      "lon": -91.0120464,
+      "distance_km": 21.12050837559071,
+      "bearing": 125.32555693981504,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378746",
+      "name": "Bayou Manchac at Alligator B. near Kleinpeter, LA",
+      "lat": 30.32138889,
+      "lon": -91.0209444,
+      "distance_km": 21.425230434038976,
+      "bearing": 130.13469560092153,
+      "elevation_m": -0.15,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378748",
+      "name": "Bluff Swamp near Kleinpeter, LA",
+      "lat": 30.323527,
+      "lon": -91.0181576,
+      "distance_km": 21.478866979043524,
+      "bearing": 129.18964661291972,
+      "elevation_m": -0.15,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378710",
+      "name": "AMITE RIVER NEAR BATON ROUGE, LA.",
+      "lat": 30.39796966,
+      "lon": -90.9731569,
+      "distance_km": 21.607518002550098,
+      "bearing": 104.16351521181906,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302508090580200",
+      "name": "Amite River Channel near mile 49.4",
+      "lat": 30.41888889,
+      "lon": -90.9672222,
+      "distance_km": 21.717905250347602,
+      "bearing": 97.83317948551525,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302451090575800",
+      "name": "Amite River Channel near mile 48.7",
+      "lat": 30.41416667,
+      "lon": -90.9661111,
+      "distance_km": 21.901854347311467,
+      "bearing": 99.15521121509414,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302952090581200",
+      "name": "Amite River Channel near mile 59.7",
+      "lat": 30.49777778,
+      "lon": -90.97,
+      "distance_km": 22.012721216194898,
+      "bearing": 74.69180462050161,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377800",
+      "name": "White Bayou near Zachary. LA",
+      "lat": 30.6361111,
+      "lon": -91.1272222,
+      "distance_km": 22.052140669486054,
+      "bearing": 16.21886100956749,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07380100",
+      "name": "BAYOU MANCHAC AT HOPE VILLA, LA.",
+      "lat": 30.34297099,
+      "lon": -90.993157,
+      "distance_km": 22.19788905000828,
+      "bearing": 120.9202145389819,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302331090580400",
+      "name": "Amite River Point Bar near mile 45.9",
+      "lat": 30.39194444,
+      "lon": -90.9677778,
+      "distance_km": 22.27883065214939,
+      "bearing": 105.50627374249308,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302446090574400",
+      "name": "Amite River Point Bar near mile 48.5",
+      "lat": 30.41277778,
+      "lon": -90.9622222,
+      "distance_km": 22.294975674424293,
+      "bearing": 99.39252933885155,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302409090574600",
+      "name": "Amite River Channel near mile 47.5",
+      "lat": 30.4025,
+      "lon": -90.9627778,
+      "distance_km": 22.459960756259587,
+      "bearing": 102.29156959412518,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378075",
+      "name": "Beaver Bayou at Denham Road nr Baton Rouge, LA",
+      "lat": 30.58768705,
+      "lon": -91.0248259,
+      "distance_km": 22.460868467191254,
+      "bearing": 45.295789217238166,
+      "elevation_m": -0.24,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:0737775103",
+      "name": "Comite River .90 miles ds Hwy 64 near Zachary, LA",
+      "lat": 30.63221389,
+      "lon": -91.1010472,
+      "distance_km": 22.47956631257725,
+      "bearing": 22.669481334044406,
+      "elevation_m": 17.98,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377300",
+      "name": "Amite River at Magnolia, LA",
+      "lat": 30.5349106,
+      "lon": -90.9806579,
+      "distance_km": 22.515135686576233,
+      "bearing": 63.80549223908611,
+      "elevation_m": -0.44,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:0737775102",
+      "name": "Comite River .77 miles ds Hwy 64 near Zachary, LA",
+      "lat": 30.63333889,
+      "lon": -91.0994611,
+      "distance_km": 22.65374447723918,
+      "bearing": 22.901350048481845,
+      "elevation_m": 18.29,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378725",
+      "name": "Clay Cut Byu nr Hope Villa, LA",
+      "lat": 30.37324807,
+      "lon": -90.9695455,
+      "distance_km": 22.767547268905098,
+      "bearing": 110.66672422980298,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:0737775101",
+      "name": "Comite River .64 miles ds Hwy 64 near Zachary, LA",
+      "lat": 30.63501944,
+      "lon": -91.0986667,
+      "distance_km": 22.855458448324914,
+      "bearing": 22.894154348126506,
+      "elevation_m": 18.29,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302317090573700",
+      "name": "Amite River Channel near mile 45.7",
+      "lat": 30.38805556,
+      "lon": -90.9602778,
+      "distance_km": 23.089153162651257,
+      "bearing": 106.05900324522662,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07381445",
+      "name": "INTRACOASTAL WATERWAY NEAR PLAQUEMINE, LA.",
+      "lat": 30.268529,
+      "lon": -91.3209426,
+      "distance_km": 23.28360377615655,
+      "bearing": 212.2415470804832,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07381427",
+      "name": "Bayou Grosse Tete S. of I10 at Grosse Tete, LA",
+      "lat": 30.4147222,
+      "lon": -91.4320833,
+      "distance_km": 23.312803539882797,
+      "bearing": 261.56408998071447,
+      "elevation_m": -0.98,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377780",
+      "name": "White Bayou at State Hwy 64 near Zachary, LA",
+      "lat": 30.6493524,
+      "lon": -91.1314954,
+      "distance_km": 23.365135753654247,
+      "bearing": 14.24568439493163,
+      "elevation_m": 14.98,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377779",
+      "name": "Tributary to White's Bayou at Zachary, LA",
+      "lat": 30.65166667,
+      "lon": -91.1419444,
+      "distance_km": 23.390868015604333,
+      "bearing": 11.716629067094175,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302326090570800",
+      "name": "Amite River Channel near mile 44.6",
+      "lat": 30.39055556,
+      "lon": -90.9522222,
+      "distance_km": 23.758670333697726,
+      "bearing": 104.89590235411686,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07377750",
+      "name": "Comite River near Zachary, LA",
+      "lat": 30.64324138,
+      "lon": -91.09455,
+      "distance_km": 23.850903706759322,
+      "bearing": 22.909337837737212,
+      "elevation_m": 17.86,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07378070",
+      "name": "Beaver Bayou nr Fred, LA",
+      "lat": 30.6257417,
+      "lon": -91.0523267,
+      "distance_km": 24.056392652858307,
+      "bearing": 33.639295399579396,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:301400091074700",
+      "name": "MISSISSIPPI RIVER AT MILE 198",
+      "lat": 30.23352914,
+      "lon": -91.1298267,
+      "distance_km": 24.32572142836391,
+      "bearing": 165.87941202192815,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07380102",
+      "name": "Welsh Gully at J. Broussard Rd nr Prairieville, LA",
+      "lat": 30.3368601,
+      "lon": -90.9689897,
+      "distance_km": 24.54320965930455,
+      "bearing": 119.48868884803346,
+      "elevation_m": 0.22,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07380117",
+      "name": "GRAYS CK @ DENHAM SPRINGS, LA",
+      "lat": 30.48352316,
+      "lon": -90.9389898,
+      "distance_km": 24.573650881677757,
+      "bearing": 80.08137864809407,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:302315090563900",
+      "name": "Amite River Channel near mile 43.5",
+      "lat": 30.3875,
+      "lon": -90.9441667,
+      "distance_km": 24.593321706863332,
+      "bearing": 105.19393754262899,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:303501090591100",
+      "name": "Amite River Point Bar near mile 69.6",
+      "lat": 30.5836111,
+      "lon": -90.9863889,
+      "distance_km": 24.93194107010484,
+      "bearing": 51.99058197234797,
+      "elevation_m": null,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "USGS:07381440",
+      "name": "Bayou Grosse Tete at Rosedale, LA",
+      "lat": 30.44269394,
+      "lon": -91.4517765,
+      "distance_km": 24.943719065915918,
+      "bearing": 269.29810135625985,
+      "elevation_m": 0.0,
+      "source": "USGS NWIS Water Services",
+      "type": null,
+      "org": null,
+      "huc8": null
+    },
+    {
+      "sensor_id": "WQP:USGS-302642091112101",
+      "name": "EB-109",
+      "lat": 30.4451908,
+      "lon": -91.1892741,
+      "distance_km": 0.2300433843988034,
+      "bearing": 104.24800251841225,
+      "elevation_m": null,
+      "source": "EPA Water Quality Portal",
+      "type": "Well",
+      "org": "USGS Louisiana Water Science Center",
+      "huc8": "08070202"
+    },
+    {
+      "sensor_id": "WQP:22LAGWTR-199003",
+      "name": "EB-630",
+      "lat": 30.4473669,
+      "lon": -91.1899086,
+      "distance_km": 0.24626064562393796,
+      "bearing": 41.17814684345018,
+      "elevation_m": null,
+      "source": "EPA Water Quality Portal",
+      "type": "Well",
+      "org": "Louisiana Dept of Environmental Quality",
+      "huc8": "08070202"
+    }
+  ],
+  "errors": []
+}

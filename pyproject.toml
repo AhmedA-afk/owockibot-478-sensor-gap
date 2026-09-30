@@ -1,0 +1,16 @@
+[project]
+name = "sensor-gap"
+version = "0.1.0"
+description = "Find the nearest upstream sensor gap for a river point (owockibot bounty #478)"
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31", "jsonschema>=4.20"]
+
+[project.scripts]
+sensor-gap = "sensor_gap.cli:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["sensor_gap*"]
